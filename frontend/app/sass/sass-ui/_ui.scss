@@ -1,0 +1,300 @@
+/* Styleguide Container */
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Bree Serif', serif;
+
+//color override
+.go {
+  background-color: $green;
+  color: $white;
+}
+.stop {
+  background-color: $red;
+  color: $white;
+}
+
+.hold {
+  background-color: $orange;
+  color: $white;
+}
+
+//Directions
+.left {}
+.right {}
+.up {}
+.down {}
+
+// Badge
+
+.badge {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.ui-display {
+  background-color: $light-gray;
+  min-height: 100%;
+  padding: 20px;
+
+  * {
+    @include transition(all,.4s, ease-in);
+  }
+}
+
+html, body {
+  line-height:1;
+  height: 100%;
+  position: relative;
+}
+
+/* Page Structure */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $black;
+
+  &.aa-level-2 {
+    font-size: 1.2rem;
+  }
+  &.aa-level-3 {
+    font-size: 2rem;
+  }
+}
+
+.high-contrast {
+  background-color: $white;
+  color: $black;
+
+  &.invert-contrast {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+/* Headers - Labels */
+h1,h2,h4,h3,h5,h6 {
+  position: relative;
+  font-size: 100%;
+  line-height: 1.2rem;
+
+  &.masthead {
+    font-size: 4rem;
+    line-height: 6rem;
+    font-weight: normal;
+    display: block;
+    font-family: 'Bree Serif', serif;
+    border-bottom: 1px solid $gray;
+
+    @media (max-width: 800px) and (min-width: 300px) {
+      font-size: 3.5rem;
+      line-height: 5rem;
+    }
+  }
+
+  @media (max-width: 800px) and (min-width: 300px) {
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 4.2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2.8rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  margin-bottom: 2.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+h6 {
+  font-size: .825rem;
+  margin-bottom: 1;
+  font-weight: 700;
+  padding-left: 8px;
+
+  &:before {
+    content: "";
+    background-color: $black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    height: 100%;
+  }
+}
+
+label {
+  display: block;
+}
+
+/* Aesthetic Adjustments */
+.soft {
+  @include radius(3px !important);
+}
+
+.softer {
+  @include radius(9px !important);
+}
+
+.softest {
+  @include radius(13px !important);
+}
+
+.pill {
+  @include radius(300px !important);
+  //padding: 30px 80px !important;
+}
+
+
+/* Global Variables */
+.inline {
+  display: inline-block;
+}
+
+.disabled {
+  cursor: disabled;
+}
+
+.blank {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background-color: $white;
+  width: 100%;
+  height: auto;
+  min-height: 90px;
+  @include flex-box;
+  margin: 0 0 2rem;
+  box-shadow: 0 6px 6px -6px rgba(0,0,0,.2);
+  @include transition();
+
+  &:hover {
+    box-shadow: 0 6px 6px rgba(0,0,0,.2);
+  }
+
+  &.pill {
+    padding: 3.5em !important;
+  }
+
+  &.row {
+    flex-flow: row wrap;
+    padding: 20px;
+
+    .item {
+      @include flex(1 0);
+      padding: 0 8px 0 0;
+      width: auto;
+      min-width: 300px;
+      min-height: 90px;
+
+      &-title {
+        @include flex(1 0 100%);
+        border-bottom: 1px solid $gray;
+        margin-bottom: 2rem;
+        min-height: 40px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.col {
+    flex-flow: column;
+    padding: 8px;
+    min-width: 300px;
+    width: 300px;
+    margin: 0 1rem 1rem 0;
+
+    .item {
+      @include flex(1 0);
+      padding: 0 0 8px 0;
+      height: auto;
+      min-height: 40px;
+
+      &-title {
+        border-bottom: 1px solid $gray;
+        margin-bottom: 2rem;
+        min-height: 40px;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.shadow {
+    @include box-shadow(0, 2px, 2px, rgba(0,0,0,0.3), false);
+  }
+
+  @media (max-width: 800px) and (min-width: 300px) {
+    &.row, &.col {
+      width: 100%;
+      flex-flow: column;
+      margin: 0 0 2rem 0;
+
+      .item, .item-title {
+        @include flex(1 0);
+        width: 100%;
+        padding: 0 0 8px 0;
+        height: auto;
+        min-height: 90px;
+      }
+    }
+  }
+}
+
+// input:not([type="checkbox"], [type="radio"], [type="reset"], [type="submit"]) {
+//   @extend .soft;
+//   border: 1px solid $gray;
+//   padding: 8px;
+//   min-height: 40px;
+//   font-size: 1rem;
+//   min-width: 90px;
+//   width: auto;
+//   outline: none;
+
+//   &:focus {
+//     border-color: $blue;
+//   }
+// }
+
+/* Styling input fields with browser generated button styles */
+// input {
+//   &[type="reset"], &[type="submit"], &[type="button"] {
+//     @include button($gray, $black);
+//   }
+// }
+
+.cta {
+  @include button($green, $black);
+}
